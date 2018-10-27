@@ -1,0 +1,194 @@
+body {
+	background:#000;
+	color:#fff;
+	padding:0;
+	margin:0;
+}
+
+
+
+/* контейнер для navbar-а */
+			
+.navbar_line {
+	position: relative;
+	z-index: 5;
+	width: 100%;
+	height: 64px;
+	background: #333;
+	background-image: -o-linear-gradient(bottom, #222222 0%, #555555 100%);
+	background-image: -moz-linear-gradient(bottom, #222222 0%, #555555 100%);
+	background-image: -webkit-linear-gradient(bottom, #222222 0%, #555555 100%);
+	background-image: -ms-linear-gradient(bottom, #222222 0%, #555555 100%);    
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #222222),color-stop(1, #555555));    
+	background-image: linear-gradient(bottom, #222222 0%, #555555 100%);
+}
+.navbar_shadow {
+	position: relative;
+	background: #fff;
+	top: -16px;
+	width: 100%;
+	height: 16px;
+	-webkit-box-shadow: 0px -8px 16px 12px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px -8px 16px 12px rgba(0,0,0,0.75);
+	box-shadow: 0px -8px 16px 12px rgba(0,0,0,0.75);
+}
+.navbar_box {
+	background: #00f;
+	height: 64px;
+	position: sticky;
+	top: 0;
+}
+
+
+
+/* мини-логотип на navbar-у с название компании */
+
+.logo_company {
+	z-index: 20;
+	position: absolute;
+}
+@keyframes pic_logo_anima {
+	0% { -webkit-transform: rotateY(0deg); }
+	50% { -webkit-transform: rotateY(180deg); }
+	100% { -webkit-transform: rotateY(360deg); }
+}
+.pic_logo {
+	float: left;
+	width: 44px;
+	height: 44px;
+	margin-top: 10px;
+	margin-left: -48px;
+	margin-right: 53px;
+	border-radius: 50%;
+	background: #fff;
+	cursor: pointer;
+	-webkit-transition: margin 0.8s ease,
+			    transform 0.5s linear;
+}
+.pic_logo.active {
+	margin-left: 24px;
+	margin-right: 12px;
+	animation: pic_logo_anima 1.5s;
+	animation-timing-function: ease;
+}
+.pic_logo:hover { -webkit-transform: rotateY(180deg); }
+.txt_logo {
+	float: left;
+	padding-top: 24px;
+	font: bold 36px/8px serif;
+	color: rgba(0,0,0,0.6);
+	text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+}
+
+
+
+/* sidebar с иконками соц. групп */
+
+.social_bar {
+	cursor: pointer;
+	position: fixed;
+	z-index: 12;
+	left: -50px;
+	top: 50%;
+	margin-top: -52px;
+	-webkit-transition: left 0.5s ease;
+}
+@keyframes social_bar_anima {
+	0%, 85% { left: -50px;; }
+	100% { left: 0px; }
+}
+.social_bar.active {
+	animation: social_bar_anima 3.5s;
+	animation-timing-function: ease;
+	left: 0px;
+}
+.mygroup {
+	opacity: 0.75;
+	background: #222;
+	position: relative;
+	padding: 6px;
+	width: 30px;
+	-webkit-transition: background 0.8s ease,
+			    padding-left 0.5s ease;
+			    opacity 0.8s ease;
+}
+.mygroup:before {
+	width: 26px;
+	height: 1px;
+	position: absolute;
+	left: 8px;
+	top: 0px;
+	content: '';
+	background: #ffffff;
+	opacity: 0.125;
+}
+.mygroup:first-child:before { display: none; }
+.mygroup:hover {
+	opacity: 1.0;				
+	padding-left: 24px;
+}
+.mygroup:hover:before {	display: none; }
+.mygroup:hover + .mygroup:before { display: none; }
+.mygroup#fb_link:hover { background: #38529A; }
+.mygroup#vk_link:hover { background: #4E7DB2; }
+.mygroup#in_link:hover { background: #0073B1; }
+.mygroup#ok_link:hover { background: #EA6E0C; }
+
+
+
+/* контент страницы */
+
+section { display: block; }		
+section#more {
+	height: 100vh;
+	background: #7F593F;
+}
+section#projects {
+	height: 100vh;
+	background: #dbdbdb;
+}
+section#about {
+	height: 100vh;
+	background: #7F593F;
+}
+section#contacts {
+	height: 100vh;
+	background: #dbdbdb;
+}
+
+
+
+/* ribbon-лента для инфо-статуса */
+
+.ribbon {
+	position: fixed;
+	z-index: 10;
+	right: 160px;
+	top: -64px;
+	-webkit-transition: top 0.8s ease;
+}
+.ribbon.active { top: 0px; }
+
+
+
+/* инфо-статус текущего якоря контента */
+
+nav {
+	position: fixed;
+	z-index: 10;
+	right:-8px;
+	top: 0px;
+	padding: 20px;
+	background: #77000000;
+	-webkit-transition: top 0.8s ease;
+}
+nav a {
+	display: block;
+	font: 24px/24px sans-serif;
+	text-decoration: none;
+	pointer-events:none;
+	color: #fff;
+	opacity: 0.0;
+	-webkit-transition: opacity 0.8s ease;
+}
+nav a.active { opacity: 0.8; }
