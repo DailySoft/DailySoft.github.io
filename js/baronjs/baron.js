@@ -582,7 +582,7 @@ function manageEvents(item, eventManager, mode) {
             handler: function(e) {
                 item.scroll(e)
 
-		// Добавляем в слушатель событий onScroll (by mr.gifo)
+		// Р”РѕР±Р°РІР»СЏРµРј РІ СЃР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёР№ onScroll (by mr.gifo)
 		baron.toCallbackScroll(e, item.scroller);
             },
 
@@ -685,7 +685,7 @@ function manageEvents(item, eventManager, mode) {
             type: 'scroll'
         }, {
 
-            // Добавляем обработчик событий 'mousewheel' для слушателя событий onWheel (by mr.gifo)
+            // Р”РѕР±Р°РІР»СЏРµРј РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ 'mousewheel' РґР»СЏ СЃР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёР№ onWheel (by mr.gifo)
             element: item.scroller,
             handler: function(e) {
 		baron.toCallbackWheel(e, item.scroller);
@@ -1198,7 +1198,7 @@ baron.prototype = {
             css(this.scroller, styles)
         }
 
-	// Добавляем слушатель событий инициализации объекта baron (by mr.gifo)
+	// Р”РѕР±Р°РІР»СЏРµРј СЃР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёР№ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РѕР±СЉРµРєС‚Р° baron (by mr.gifo)
 	baron.toCallbackInit(this.scroller);
 
         return this
@@ -1289,19 +1289,19 @@ baron.version = '3.0.1'
 
 
 
-// -------------------------------------------------- hack by mr.gifo ----------------------------------------------
-/* Слушатели событий инициализации и 'onscroll' customBar-а.
+// --------------------------------------------------- hack by mr.gifo ----------------------------------------------
+/* РЎР»СѓС€Р°С‚РµР»Рё СЃРѕР±С‹С‚РёР№ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Рё 'onscroll' customBar-Р°.
 
-   - Геттер getScroller() - возвращает актальный объект scroller текущего scrollbar-а.
-   - Событие инициализации срабатывает после того, как полностью создался объект текущего scrollbar-а,
-   и готов к работе и взаимодействию с ним.
-   - Событие 'onscroll' срабатывает во время скроллинга страницы мышью, клавиатурой, выделением контента,
-   перетаскиванием scrollbar-а ЛКМ и т.д..., и передает событие и объект scroller со всеми текущими параметрами
-   для взаимодействия с ним.
-   - Событие 'mousewheel' срабатывает во время скроллинга страницы колёсиком мыши, и передает событие
-   и объект scroller со всеми текущими параметрами для взаимодействия с ним.
+   - Р“РµС‚С‚РµСЂ getScroller() - РІРѕР·РІСЂР°С‰Р°РµС‚ Р°РєС‚Р°Р»СЊРЅС‹Р№ РѕР±СЉРµРєС‚ scroller С‚РµРєСѓС‰РµРіРѕ scrollbar-Р°.
+   - РЎРѕР±С‹С‚РёРµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё СЃСЂР°Р±Р°С‚С‹РІР°РµС‚ РїРѕСЃР»Рµ С‚РѕРіРѕ, РєР°Рє РїРѕР»РЅРѕСЃС‚СЊСЋ СЃРѕР·РґР°Р»СЃСЏ РѕР±СЉРµРєС‚ С‚РµРєСѓС‰РµРіРѕ scrollbar-Р°,
+   Рё РіРѕС‚РѕРІ Рє СЂР°Р±РѕС‚Рµ Рё РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЋ СЃ РЅРёРј.
+   - РЎРѕР±С‹С‚РёРµ 'onscroll' СЃСЂР°Р±Р°С‚С‹РІР°РµС‚ РІРѕ РІСЂРµРјСЏ СЃРєСЂРѕР»Р»РёРЅРіР° СЃС‚СЂР°РЅРёС†С‹ РјС‹С€СЊСЋ, РєР»Р°РІРёР°С‚СѓСЂРѕР№, РІС‹РґРµР»РµРЅРёРµРј РєРѕРЅС‚РµРЅС‚Р°,
+   РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµРј scrollbar-Р° Р›РљРњ Рё С‚.Рґ..., Рё РїРµСЂРµРґР°РµС‚ СЃРѕР±С‹С‚РёРµ Рё РѕР±СЉРµРєС‚ scroller СЃРѕ РІСЃРµРјРё С‚РµРєСѓС‰РёРјРё РїР°СЂР°РјРµС‚СЂР°РјРё
+   РґР»СЏ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ СЃ РЅРёРј.
+   - РЎРѕР±С‹С‚РёРµ 'mousewheel' СЃСЂР°Р±Р°С‚С‹РІР°РµС‚ РІРѕ РІСЂРµРјСЏ СЃРєСЂРѕР»Р»РёРЅРіР° СЃС‚СЂР°РЅРёС†С‹ РєРѕР»С‘СЃРёРєРѕРј РјС‹С€Рё, Рё РїРµСЂРµРґР°РµС‚ СЃРѕР±С‹С‚РёРµ
+   Рё РѕР±СЉРµРєС‚ scroller СЃРѕ РІСЃРµРјРё С‚РµРєСѓС‰РёРјРё РїР°СЂР°РјРµС‚СЂР°РјРё РґР»СЏ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ СЃ РЅРёРј.
    
-   Пример использования со страницы:
+   РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃРѕ СЃС‚СЂР°РЅРёС†С‹:
 
 	var scroller = baron.getScroller();
    
@@ -1323,35 +1323,35 @@ baron.version = '3.0.1'
 */
 
 var obj_scroller;
-baron.getScroller = function() { return obj_scroller; }		// Возвращает актуальный объект scroller
+baron.getScroller = function() { return obj_scroller; }		// Р’РѕР·РІСЂР°С‰Р°РµС‚ Р°РєС‚СѓР°Р»СЊРЅС‹Р№ РѕР±СЉРµРєС‚ scroller
 
 var callInit = function() {}
 var callWheel = function() {}
 var callScroll = function() {}
 
-baron.onCreate = function(callback) { callInit = callback; }	// Слушатель событя иництализации baron
-baron.onWheel = function(callback) { callWheel = callback; }	// Слушатель события 'mousewheel' baron
-baron.onScroll = function(callback) { callScroll = callback; }	// Слушатель события 'onscroll' baron
+baron.onCreate = function(callback) { callInit = callback; }	// РЎР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚СЏ РёРЅРёС†С‚Р°Р»РёР·Р°С†РёРё baron
+baron.onWheel = function(callback) { callWheel = callback; }	// РЎР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёСЏ 'mousewheel' baron
+baron.onScroll = function(callback) { callScroll = callback; }	// РЎР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёСЏ 'onscroll' baron
 
 
-// Слушает текущее событие 'mousewheel' и принимает объект scroller. Запускается из 'manageEvents' строка
+// РЎР»СѓС€Р°РµС‚ С‚РµРєСѓС‰РµРµ СЃРѕР±С‹С‚РёРµ 'mousewheel' Рё РїСЂРёРЅРёРјР°РµС‚ РѕР±СЉРµРєС‚ scroller. Р—Р°РїСѓСЃРєР°РµС‚СЃСЏ РёР· 'manageEvents' СЃС‚СЂРѕРєР° 686
 baron.toCallbackWheel = function(e, scroller) {
 	if(scroller !== undefined) callWheel(e, scroller);
 }
 
-// Слушает текущее событие 'onscroll' и принимает объект scroller. Запускается из 'manageEvents' строка
+// РЎР»СѓС€Р°РµС‚ С‚РµРєСѓС‰РµРµ СЃРѕР±С‹С‚РёРµ 'onscroll' Рё РїСЂРёРЅРёРјР°РµС‚ РѕР±СЉРµРєС‚ scroller. Р—Р°РїСѓСЃРєР°РµС‚СЃСЏ РёР· 'manageEvents' СЃС‚СЂРѕРєР° 585
 baron.toCallbackScroll = function(e, scroller) {
 	obj_scroller = scroller;
 	if (scroller !== undefined) callScroll(e, scroller);
 }
 
-// Слушает событие инициализации объекта baron и принимает объект scroller. Запускается из 'constructor' строка
+// РЎР»СѓС€Р°РµС‚ СЃРѕР±С‹С‚РёРµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РѕР±СЉРµРєС‚Р° baron Рё РїСЂРёРЅРёРјР°РµС‚ РѕР±СЉРµРєС‚ scroller. Р—Р°РїСѓСЃРєР°РµС‚СЃСЏ РёР· 'constructor' СЃС‚СЂРѕРєР° 1201
 baron.toCallbackInit = function(scroller) {
 	obj_scroller = scroller;
 	callInit(scroller);
 }
 
-// -------------------------------------------------- hack by mr.gifo ----------------------------------------------
+// --------------------------------------------------- hack by mr.gifo ----------------------------------------------
 
 
 
