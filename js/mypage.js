@@ -44,22 +44,22 @@ $(window).on("load", function () {
 		backward: '.baron__up'
 	});
 	
-	# ------------------
-	# Create a campaign\
-	# ------------------
+	// ------------------
+	// Create a campaign\
+	// ------------------
 
-	# Include the SendinBlue library\
-	var SibApiV3Sdk = require('sib-api-v3-sdk');
+	// Include the SendinBlue library\
+	var SibApiV3Sdk = require('https://api.sendinblue.com/v3/emailCampaigns');
 	var defaultClient = SibApiV3Sdk.ApiClient.instance;
 
-	# Instantiate the client\
+	// Instantiate the client\
 	var apiKey = defaultClient.authentications['api-key'];
 	apiKey.apiKey = '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';
 
 	var apiInstance = new SibApiV3Sdk.EmailCampaignsApi();
 	var emailCampaigns = new SibApiV3Sdk.CreateEmailCampaign();
 
-	# Define the campaign settings\
+	// Define the campaign settings\
 	emailCampaigns = {
 		name: 'Campaign sent via the API',
 		subject: 'My subject',
@@ -76,7 +76,7 @@ $(window).on("load", function () {
 		scheduledAt: '2018-01-01 00:00:01'
 	}
 
-	# Make the call to the client\
+	// Make the call to the client\
 	apiInstance.createEmailCampaign(emailCampaigns).then(function(data) {
 		console.log('API called successfully. Returned data: ' + data);
 	}, function(error) {
