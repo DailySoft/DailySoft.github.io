@@ -66,13 +66,13 @@ $(window).on("load", function () {
 		sender: {name: 'From name', email: 'daily.soft@mail.ru'},
 		type: 'classic',
 
-		# Content that will be sent\
+		// Content that will be sent\
 		htmlContent: 'Congratulations! You successfully sent this example campaign via the SendinBlue API.',
 
-		# Select the recipients\
+		// Select the recipients\
 		recipients: {listIds: [2, 7]},
 
-		# Schedule the sending in one hour\
+		// Schedule the sending in one hour\
 		scheduledAt: '2018-01-01 00:00:01'
 	}
 
