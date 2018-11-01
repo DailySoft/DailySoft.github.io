@@ -1,4 +1,6 @@
 body {
+	//min-width: 1280px;
+	//min-height: 500px;
 	background:#000;
 	color:#fff;
 	padding:0;
@@ -33,6 +35,7 @@ body {
 	box-shadow: 0px -8px 16px 12px rgba(0,0,0,0.75);
 }
 .navbar_box {
+	z-index: 5;
 	background: #00f;
 	height: 64px;
 	position: sticky;
@@ -138,7 +141,11 @@ body {
 
 /* контент страницы */
 
-section { display: block; }		
+section {
+	//display: block;
+	position: relative;
+	//z-index: 0;
+}		
 section#more {
 	height: 100vh;
 	background: #7F593F;
@@ -153,7 +160,57 @@ section#about {
 }
 section#contacts {
 	height: 100vh;
-	background: #dbdbdb;
+	background-image: url("../res/contact-background.png");
+	background-color: #dbdbdb;
+}
+section#contacts h1 {
+	width: 100%;
+	position: absolute;
+	top: 70px;
+	font: 40px cursive;
+	text-align: center;
+	color: #444;
+}
+section#contacts .dialog_form {
+	position: absolute;
+	top: 28%;
+	width: 50%;
+	height: 50%;
+	background: #f00;
+	left: 25%;
+}
+section #myfooter {
+	position: absolute;
+	width: 100%;
+	height: 80px;
+	background: #444;
+	bottom: 0px;
+	font: 16px serif;
+	text-align: center;
+}
+section #myfooter p {
+	position: absolute;	
+	padding-top: 18px;
+	opacity: 0.7;
+}
+section #myfooter p.organisation { left: 80px; }
+section #myfooter p.geoposition {
+	right: 80px;
+	padding-top: 14px; /* корректировка из-за картинки */
+}
+section #myfooter .more_contacts .contacts_field {
+	display: inline-block;
+	margin: 18px 2% 0 2%;
+}
+section #myfooter .more_contacts .contacts_field .tele {
+	text-align: left;
+	margin-bottom: 4px;
+	opacity: 0.7;
+}
+section #myfooter .more_contacts .contacts_field .tele:hover { opacity: 1.0; }
+section #myfooter .more_contacts .contacts_field .tele a {
+	text-decoration: none;
+	color: #fff;
 }
 
 
