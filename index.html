@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<title>Daily Soft</title>
 		<link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon">
@@ -9,7 +8,7 @@
 		<link href="css/navbar.css" rel="stylesheet"/>
 		<link href="css/downer-chevron.css" rel="stylesheet"/>
 		
-		<script src="js/jquery/jquery-1.9.0.js"></script>
+		<script src="js/jquery/jquery-3.3.1.min.js"></script>
 		<script
 			src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
 			integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
@@ -28,6 +27,7 @@
 		<script src="js/threejs/TexturePassMin.js"></script>
 		<script src="js/threejs/GlitchPassMin.js"></script>
 
+		<script src="js/mailto/mailto.js"></script>		<!-- Велосипед для отправки почты со страницы -->
 		<script src="js/myframe.js"></script>			<!-- Скрипт glitch-заставки -->
 		<script src="js/mypage.js"></script>			<!-- Скрипт страницы -->
 	</head>
@@ -44,7 +44,6 @@
 						<a href="#about"> About <img src="res/ic-about-min.png"> </a>
 						<a href="#contacts"> Contacts <img src="res/ic-contacts-min.png"> </a>
 					</nav>
-
 
 					<div style="font-size:0;">
 						<section id ="home"></section>
@@ -87,10 +86,21 @@
 						<section id ="contacts">
 							<h1> Задайте нам свой вопрос здесь </h1>
 
-							<div class="dialog_form"></div>
+							<div class="dialog_form">
+								<input id="name" type="text" name="name" placeholder="Как к Вам обращаться?" required />
+								<input id="email" type="email" name="email" placeholder="Ваш электронный адрес:"/>
+								<div class="content_area"> <textarea id="msgsend" name="message" required ></textarea> </div>
+								<button class="button_upform"> Отправить </button>
+								<div class="modal">
+									<div class="modal_box">
+										<div class="modal_mail_left"></div>
+										<div class="modal_mail_right"></div>
+										<div class="status_send"> Подождите... </div>
+									</div>
+								</div>
+							</div>
 
 							<div id="myfooter">
-
 								<p class="organisation">© 2018 &nbsp;&laquo;Daily Soft&raquo;</p>
 								<p class="geoposition"> <img src="res/contact-ongeo.png"> Russia, Penza</p>
 								<div class="more_contacts">
@@ -105,14 +115,8 @@
 										</div>
 									</div>
 									<div class="contacts_field">
-										<div class="tele">
-											<img src="res/contact-phone.png">
-											<a href="tel:+79012345678"> &nbsp;+79012345678 </a>
-										</div>
-										<div class="tele">
-											<img src="res/contact-phone.png">
-											<a href="tel:+79012345678"> &nbsp;+79012345678 </a>
-										</div>
+										<div class="tele"> <img src="res/contact-phone.png"> &nbsp;+79012345678 </div>
+										<div class="tele"> <img src="res/contact-phone.png"> &nbsp;+79012345678 </div>
 									</div>
 									<div class="contacts_field">
 										<div class="tele"> <img src="res/contact-skype.png"> &nbsp;dailysoft007 </div>
