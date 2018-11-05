@@ -121,6 +121,10 @@ $(document).on("click", ".mybar a", function (event) {
 
 // валидация формы обратной связи и отправка почтового запроса с сайта
 $(document).on("focus", ".dialog_form .button_upform", function (event) {
+	$(".status_send").css('color', '#707070');
+	$(".status_send").text("Подождите...");
+
+	// валидация и отправка
 	var name = $("input#name").val();
 	var mail = $("input#email").val();
 	var msg = $("#msgsend").val();
