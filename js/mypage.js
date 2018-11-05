@@ -12,18 +12,6 @@ var isScrolling = false;
 
 // задаём параметры инициализации для baron - объекта scrollbar
 $(window).on("load", function () {
-
-	// Horizontal
-	baron({
-		root: '.main__clipper',
-		scroller: '.main__scroller',
-		bar: '.main__bar',
-		scrollingCls: '_scrolling',
-		draggingCls: '_dragging',
-		direction: 'h',
-		impact: 'scroller'
-	});
-
 	baron({
 		root: '.baron',
 		scroller: '.baron__scroller',
@@ -117,7 +105,7 @@ baron.onWheel(function(e, o) {
 
 
 // плавный якорный переход к контенту по клику navbar-а
-$(document).on("click","a", function (event) {
+$(document).on("click", ".mybar a", function (event) {
 	var o = baron.getScroller();
 	if (o !== undefined) {
 		event.preventDefault(); 
@@ -128,6 +116,47 @@ $(document).on("click","a", function (event) {
 		var top = $(id).offset().top + o.scrollTop;
 		animateToScroll(o, top, 1500, "easeOutQuart");
 	}			
+});
+
+
+// валидация формы обратной связи и отправка почтового запроса с сайта
+$(document).on("focus", ".dialog_form .button_upform", function (event) {
+	var name = $("input#name").val();
+	var mail = $("input#email").val();
+	var msg = $("#msgsend").val();
+	var name_reg = /^[a-zA-Zа-яА-Я]+$/;
+	var mail_reg = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+	var name_is = (name.length > 1) ? (name_reg.test(name) ? true : false) : false;
+	var mail_is = (mail.length > 7) ? (mail_reg.test(mail) ? true : false) : false;
+	var msg_is = (msg.length > 1) ? true : false;
+	if (name_is && mail_is && msg_is) {
+		var post = new MailTo(name, mail, msg);
+		post.response(function(isSend) {
+			if (isSend) {
+
+				// если сообщение отправилось
+				$(".status_send").css('color', '#707070');
+				$(".status_send").text("Сообщение успешно отправлено!");
+				$("input#name").val("");
+				$("input#email").val("");
+				$("#msgsend").val("");
+			} else {
+
+				// если сообщение не отправилось с ошибкой на сервере
+				$(".status_send").css('color', '#FF3232');
+				$(".status_send").text("Ошибка на сервере :-(  Свяжитесь с нами по контактам ниже :-)");
+			}
+		});
+		post.send('daily.soft@mail.ru',
+			  'Daily Soft',
+			  'Вопрос с Сайта!');
+
+	} else {
+
+		// если поля формы были заполнены не верно
+		$(".status_send").css('color', '#FF3232');
+		$(".status_send").text("Ошибка! Пожалуйста, заполните правильно необходимые поля!");		
+	}
 });
 
 			
@@ -172,3 +201,4 @@ function getSectionId(pos_value) {
 	else result = null;
 	return result;
 }
+			
